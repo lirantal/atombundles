@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+var bundles = require('./bundles');
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,5 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  bundlesList = bundles;
 }

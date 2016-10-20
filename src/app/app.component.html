@@ -18,22 +18,13 @@
 
       <div class="inner cover">
         <h1 class="cover-heading">Boost Atom Development</h1>
-        <p class="lead">AtomBundles &trade; are an easy copy&paste list of packages to pack every supported package you need for your favorite programming language</p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-        </p>
+        <p class="lead">AtomBundles &trade; are an easy Copy&Paste list of packages to pack every supported package you need for your favorite programming language</p>
+      </div>
 
-        <div class="btn-group btn-group-justified" role="group">
-          <button type="button" class="btn btn-secondary">Typescript</button>
-          <button type="button" class="btn btn-secondary">Markdown Preview</button>
-          <button type="button" class="btn btn-secondary">TreeView</button>
-          <button type="button" class="btn btn-secondary">Time Cop</button>
-          <button type="button" class="btn btn-secondary">Snippets</button>
-          <button type="button" class="btn btn-secondary">Markdown to PDF</button>
-          <button type="button" class="btn btn-secondary">Typescript</button>
-          <button type="button" class="btn btn-secondary">Platformio-Ide-terminal</button>
-        </div>
-
+      <div>
+        <div class="btn-group btn-group-justified" role="group" *ngFor="let bundle of bundlesList.bundles">
+          <h1 class="display-3">{{ bundle.prettyName }}</h1>
+          <button type="button" class="btn btn-secondary" *ngFor="let package of bundle.packages">{{package.name}}</button>
       </div>
 
       <div class="mastfoot">
