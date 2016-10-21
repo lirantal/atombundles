@@ -21,17 +21,32 @@
         <p class="lead">AtomBundles &trade; are an easy Copy&Paste list of packages to pack every supported package you need for your favorite programming language</p>
       </div>
 
-      <div>
-        <div class="btn-group btn-group-justified" role="group" *ngFor="let bundle of bundlesList.bundles">
-          <h1 class="display-3">{{ bundle.prettyName }}</h1>
-          <button type="button" class="btn btn-secondary" *ngFor="let package of bundle.packages">{{package.name}}</button>
-      </div>
+      <div class="container">
+        <form>
+          <div class="form-group row">
+
+            <div *ngFor="let bundle of bundlesList.bundles">
+              <h1>{{ bundle.prettyName }}</h1>
+              <div class="btn-group btn-group" role="group">
+                <button type="button" (click)="toggleSelected($event, bundle.name, package.name)" class="btn btn-secondary" *ngFor="let package of bundle.packages">{{package.name}}</button>
+              </div>
+
+              <div class="alert alert-success" role="alert" *ngIf="userBundles[bundle.name] && userBundles[bundle.name].length > 0">
+                <h4 class="alert-heading">You're almost there!</h4>
+                <p>Open a terminal and issue the following command to use Atom's package manager to install the required packages:</p>
+                <kbd>
+                  $ apm install {{ getSelected(bundle.name) }}
+                </kbd>
+              </div>
+
+            </div>
+          </div>
+      </form>
+    </div>
+
 
       <div class="mastfoot">
         <div class="inner">
-          <h1>
-            {{title}}
-          </h1>
           <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
         </div>
       </div>
