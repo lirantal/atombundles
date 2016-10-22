@@ -1,0 +1,53 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+.bundle {
+  h4 {
+    font-weight: 200;
+  }
+
+  kbd {
+    display: block;
+    a {
+      color: white;
+      margin-left: -0.5rem;
+      margin-right: 1rem;
+    }
+  }
+
+  .bundle-header {
+    cursor: pointer;
+    &:hover {
+      background: $gray-lightest;
+    }
+  }
+
+  .bundle-details {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height 0s ease-in;
+    &.expanded {
+      max-height: 100rem;
+      padding: 1.25rem;
+      transition: max-height 1s ease-in;
+    }
+  }
+
+  .package {
+    display: inline-block;
+  }
+}
+
+.remove-package {
+  display: inline-block;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: $brand-danger;
+  text-align: center;
+  line-height: 1rem;
+  cursor: pointer;
+
+  img {
+    vertical-align: baseline;
+  }
+}
