@@ -1,58 +1,56 @@
-
-<div class="site-wrapper">
-
-  <div class="site-wrapper-inner">
-
-    <div class="cover-container">
-
-      <div class="masthead clearfix">
-        <div class="inner">
-          <h3 class="masthead-brand">AtomBundles &trade; </h3>
-          <nav class="nav nav-masthead">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">JavaScript</a>
-            <a class="nav-link" href="#">[Add New]</a>
-          </nav>
-        </div>
-      </div>
-
-      <div class="inner cover">
-        <h1 class="cover-heading">Boost Atom Development</h1>
-        <p class="lead">AtomBundles &trade; are an easy Copy&Paste list of packages to pack every supported package you need for your favorite programming language</p>
-      </div>
-
-      <div class="container">
-        <form>
-          <div class="form-group row">
-
-            <div *ngFor="let bundle of bundlesList.bundles">
-              <h1>{{ bundle.prettyName }}</h1>
-              <div class="btn-group btn-group" role="group">
-                <button type="button" (click)="toggleSelected($event, bundle.name, package.name)" class="btn btn-secondary" *ngFor="let package of bundle.packages">{{package.name}}</button>
-              </div>
-
-              <div class="alert alert-success" role="alert" *ngIf="userBundles[bundle.name] && userBundles[bundle.name].length > 0">
-                <h4 class="alert-heading">You're almost there!</h4>
-                <p>Open a terminal and issue the following command to use Atom's package manager to install the required packages:</p>
-                <kbd>
-                  $ apm install {{ getSelected(bundle.name) }}
-                </kbd>
-              </div>
-
-            </div>
-          </div>
-      </form>
-    </div>
-
-
-      <div class="mastfoot">
-        <div class="inner">
-          <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-        </div>
-      </div>
-
-    </div>
-
+<nav class="navbar navbar-light bg-faded">
+  <div class="container">
+    <a class="navbar-brand" href="#">AtomBundles&trade;</a>
+    <ul class="nav navbar-nav float-xs-right">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul>
   </div>
+</nav>
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <p class="lead mt-2">Boost <a href="http://atop.io">Atom</a> development with</p>
+    <h1 class="display-3">AtomBundles</h1>
+    <p class="lead mt-2">An easy Copy&Paste list of packages to pack every supported package you need for your favorite programming language</p>
+  </div>
 </div>
+
+<div class="container bundles">
+  <div class="card bundle" *ngFor="let bundle of bundlesList.bundles">
+    <div class="card-block bundle-header" (click)="bundle.expand = !bundle.expand">
+      <h4 class="card-title text-primary">{{ bundle.prettyName }}</h4>
+      <p class="card-text">{{ bundle.description }}</p>
+    </div>
+    <div class="card-block bundle-details" [ngClass]="{'expanded': bundle.expand}">
+      <p class="card-text text-muted test-small">Open a terminal and issue the following command to use Atom's package manager to install the required packages:</p>
+      <div class="row">
+        <div class="col-xs-9">
+          <kbd class="card-text px-1 py-2">
+            $ apm install&nbsp;
+            <span class="package" *ngFor="let package of bundle.packages; let i = index">
+              <span class="remove-package" [hidden]="!bundle.customize" (click)="bundle.packages.splice(i, 1)"><img src="../assets/remove.png"/></span>
+              <a href="https://atom.io/packages/{{package.name}}">{{package.name}}</a>
+            </span>
+          </kbd>
+        </div>
+        <div class="col-xs-3">
+          <button type="button" class="btn btn-outline-primary btn-block">Copy</button>
+          <button type="button" (click)="bundle.customize = !bundle.customize" class="btn btn-outline-info btn-block">Customize</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="card-footer text-muted text-xs-right">
+      2 days ago
+    </div>
+  </div>
+</div>
+
