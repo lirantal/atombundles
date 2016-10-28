@@ -2,35 +2,49 @@ module.exports = {
   "bundles": [
     {
       "name": "javascript",
-      "prettyName": "JavaScript",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam maximus sed augue a posuere. Sed elementum ultricies cursus. Donec eget suscipit metus.",
+      "prettyName": "JavaScript Basic",
+      "description": "A basic package for supporting generic JavaScript projects",
       "packages": [
-        { "name": "typescript" },
-        { "name": "language-babel" },
-        { "name": "linter" },
-        { "name": "markdown-to-pdf" },
-        { "name": "atom-beautify" }
+        { "name": "atom-typescript" },
+        { "name": "atom-ternjs" },
+        { "name": "docblockr" },
       ]
     },
     {
-      "name": "python",
-      "prettyName": "Python",
-      "description": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur non auctor augue, in tempus nulla.",
+      "name": "html",
+      "prettyName": "HTML Basic",
+      "description": "A rudamentary set of HTML power packages such as auto-close tags",
       "packages": [
-        { "name": "file-icons" },
+        { "name": "autoclose-html" },
         { "name": "pigments" },
-        { "name": "git-time-machine" }
+        { "name": "color-picker" }
       ]
     },
     {
-      "name": "java",
-      "prettyName": "Java",
-      "description": "Mauris a ante orci. Morbi sed nulla ullamcorper, tincidunt odio sit amet, porttitor felis. Nunc urna nisi, imperdiet eget lorem eget, bibendum dictum tellus.",
+      "name": "beyond-ide",
+      "prettyName": "Beyond IDE",
+      "description": "A collection of useful packages to accompany your code editing such as a terminal window",
       "packages": [
+        { "name": "platformio-ide-terminal" },
+        { "name": "atom-beautify" },
         { "name": "minimap" },
-        { "name": "qolor" },
-        { "name": "relative-numbers" },
+        { "name": "minimap-cursorline" },
+        { "name": "project-manager" },
+        { "name": "editorconfig" },
+        { "name": "highlight-selected" },
+        { "name": "highlight-line" },
+        { "name": "symbols-tree-view" },
+        { "name": "merge-conflicts" },
       ]
-    }
+    },
+    {
+      "name": "markdown-editorials",
+      "prettyName": "Markdown Editorials",
+      "description": "A collection of packages to enrich markdown editing experience",
+      "packages": [
+        { "name": "markdown-to-pdf" },
+        { "name": "change-case" }
+      ]
+    },
   ]
 };
