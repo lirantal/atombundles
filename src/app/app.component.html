@@ -38,7 +38,7 @@
       <p class="card-text text-muted test-small">Open a terminal and issue the following command for Atom's package manager to install:</p>
       <div class="row">
         <div class="col-xs-9">
-          <kbd class="card-text px-1 py-2">
+          <kbd class="card-text px-1 py-2" #packagesInstall>
             $ apm install&nbsp;
             <span class="package" *ngFor="let package of bundle.packages; let i = index">
               <span class="remove-package" [hidden]="!bundle.customize" (click)="bundle.packages.splice(i, 1)"><img src="../assets/remove.png"/></span>
@@ -47,7 +47,7 @@
           </kbd>
         </div>
         <div class="col-xs-3">
-          <button type="button" class="btn btn-outline-primary btn-block">Copy</button>
+          <button type="button" class="btn btn-outline-primary btn-block" [ngIIclipboard]="packagesInstall">Copy</button>
           <button type="button" (click)="bundle.customize = !bundle.customize" class="btn btn-outline-info btn-block">Customize</button>
         </div>
       </div>
